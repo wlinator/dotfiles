@@ -23,3 +23,5 @@ _darcs
 ^/COPYING
 
 .archive
+
+updates_list.txt  # don't include checkupdates.sh output file
