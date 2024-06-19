@@ -9,7 +9,7 @@
 cd ~/.config/polybar/
 
 { # try
-	checkupdates | wc -l >> updates_list.txt;
+	checkupdates | wc -l > updates_list.txt;
 	tail -1 updates_list.txt;
 } || { # catch
 	tail -1 updates_list.txt;
