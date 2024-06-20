@@ -98,3 +98,4 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias neofetch="fastfetch"
+alias sudo="run0 --background="
