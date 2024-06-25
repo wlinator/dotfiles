@@ -15,7 +15,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+n exec swaync-client -t -sw
 #bindsym --release Print+Control exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - - | swappy -f -
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Print exec flameshot gui
 bindsym $mod+v exec clipman pick --tool=CUSTOM --tool-args="fuzzel -d"
 bindsym $mod+l exec swaylock -ef
 bindsym $mod+Shift+r reload
@@ -82,17 +82,14 @@ bindsym --locked $mod+Shift+Prior exec playerctl previous
 exec swaync
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman store --no-persist
-exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
-exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec hash dbus-update-activation-environment 2>/dev/null
-exec dbus-update-activation-environment --systemd DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY
-
 
 exec_always nm-applet --indicator
 
 output HDMI-A-1 mode 1920x1080 pos 0 0 
 output DP-1 mode 1920x1080 pos 1920 0
-output * bg ~/.config/sway/bg.jpg fill 
+output * bg ~/.config/sway/bg.jpg fill
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 bar {
     swaybar_command waybar
