@@ -14,9 +14,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+n exec swaync-client -t -sw
-#bindsym --release Print+Control exec --no-startup-id swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - - | swappy -f -
 bindsym Print exec flameshot gui
-bindsym $mod+v exec clipman pick --tool=CUSTOM --tool-args="fuzzel -d"
+bindsym $mod+v exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 bindsym $mod+l exec swaylock -ef
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -B 'Yes, exit sway' 'swaymsg exit'
@@ -81,7 +80,7 @@ bindsym --locked $mod+Shift+Prior exec playerctl previous
 
 exec swaync
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec wl-paste -t text --watch clipman store --no-persist
+exec wl-paste --watch cliphist store
 
 exec_always nm-applet --indicator
 
