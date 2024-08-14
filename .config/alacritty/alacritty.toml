@@ -14,13 +14,12 @@ shape = "Block"
 [env]
 TERM = "alacritty"
 
-[font]
-builtin_box_drawing = true
-size = 11.0
-
-[font.bold]
 family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
+
+[font]
+builtin_box_drawing = true
+size = 9.0
 
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font Mono"
@@ -90,3 +89,4 @@ blue = '#6f8fdb'
 magenta = '#e987e9'
 cyan = '#4ac9e2'
 white = '#FFFFFF'
+
